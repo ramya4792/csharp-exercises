@@ -11,7 +11,7 @@ namespace Restaurant
 
         public bool IsUpdated { get; set; }
 
-        public enum MenuGroup {Breakfast, Lunch, Dinner };
+        public enum MenuGroup {Breakfast, LunchOrDinner, Kids };
 
     }
 }
