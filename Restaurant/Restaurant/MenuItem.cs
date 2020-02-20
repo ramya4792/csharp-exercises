@@ -6,8 +6,7 @@ namespace Restaurant
 {
     class MenuItem
     {
-        public static int itemId = 1;
-        public int Id{ get; private set; }
+  
         public string Name { get; internal set; }
         public double Cost { get; internal set; }
         public Category ItemCategory { get;  set; }
@@ -21,8 +20,17 @@ namespace Restaurant
                 return NewItem.Date >= DateTime.Now.Date.AddMonths(-3);
             }
         }
-
-
+        
+        public override string ToString()
+        {
+            return "Item:" + Name + "--Description:" + Description + "--Category:" +ItemCategory+ "--Price:" + Cost;
+        }
+        public override bool Equals(object obj)
+        {
+            MenuItem menuObj = obj as MenuItem;
+            return Name == menuObj.Name;
+        }
+        
 
     }
 }

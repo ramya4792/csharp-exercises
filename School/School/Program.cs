@@ -9,7 +9,7 @@ namespace School
     {
         static void Main(string[] args)
         {
-            Student ramya = new Student("Ramya");
+            /*Student ramya = new Student("Ramya");
             Student krish = new Student("Krish");
             Course cSharp = new Course("cSharp", "Scott");
             Course java = new Course("Java", "James");
@@ -21,7 +21,7 @@ namespace School
 
             Console.WriteLine("Java Students: ");
             foreach (string name in students)
-                Console.WriteLine(name);
+                Console.WriteLine(name);*/
             
             Console.ReadLine();
         }
@@ -41,16 +41,51 @@ namespace School
             Gpa = gpa;
         }
         public Student(string name) : this(name, 0, 0) { }
-
+        public void AddGrade(int courseCredits,double grade)
+        {
+            double qualityScore = Gpa*NumberOfCredits;
+            NumberOfCredits += courseCredits;
+            Gpa = (qualityScore + (courseCredits * grade)) / NumberOfCredits;
+        }
+        public string GetGradeLevel()
+        {
+            if (NumberOfCredits > 89)
+                return "senior";
+            else if (NumberOfCredits > 59)
+                return "junior";
+            else if (NumberOfCredits > 29)
+                return "sophomore";
+            else
+                return "freshman";
+            
+        }
+        public override string ToString()
+        {
+            return Name + "(Credits: " + NumberOfCredits + ", GPA: " + Gpa + ")";
+        }
+        public override bool Equals(Object o)
+        {
+            if (o == this)
+                return true;
+            if (o == null || o.GetType()!=GetType())
+                return false;
+         
+            Student studentObj = o as Student;
+            return StudentId == studentObj.StudentId;
+        }
+        public override int GetHashCode()
+        {
+            return StudentId;
+        }
     }
     public class Course
     {
         private int noOfStudents= 0;
         public const int MAXSTUDENTS = 30;
-        public Student students;
+        
         public string CourseName { get; set; }
         public string Teacher { get; set; }
-        public List<string> Students { get; set; }
+        public List<Student> Students  { get; set; } = new List<Student>();
         public int NumberOfSeats
         {
             get
@@ -70,13 +105,9 @@ namespace School
             CourseName = courseName;
             Teacher = teacher;
         }
-        public Course(string courseName, string teacher, List<string> studentsList)
+        public Course(string courseName, string teacher, List<Student> studentsList)
         {
-            
-           /* for(int i = 0; i < studentsList.Count; i++)
-            {
                 
-            }*/
             
             NumberOfSeats = noOfStudents++;
             CourseName = courseName;
