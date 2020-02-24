@@ -23,7 +23,7 @@ namespace Restaurant
         
         public override string ToString()
         {
-            return "Item:" + Name + "--Description:" + Description + "--Category:" +ItemCategory+ "--Price:" + Cost;
+            return  Name + "----" + Description + "----" +ItemCategory+ "----" + Cost +" LastUpdated:"+NewItem.ToShortDateString();
         }
         public override bool Equals(object obj)
         {
