@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Quiz.Question">
+    <Position X="5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAggAAAQAAABAAAAAAAAIAAgAAAAA=</HashCode>
+      <FileName>Question.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Quiz.MultipleChoice">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgBAAAA=</HashCode>
+      <FileName>MultipleChoice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Quiz.Checkbox">
+    <Position X="1" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAABAAAAAAAAIAAgBAAAA=</HashCode>
+      <FileName>Checkbox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Quiz.TrueOrFalse">
+    <Position X="8.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>TrueOrFalse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Quiz.Quiz">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAEAAAI=</HashCode>
+      <FileName>Quiz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -9,9 +9,9 @@
 } 
 <form method="post">
     <select id ="test" name="dropdown1" >
-        @foreach (KeyValuePair<string, string> cheese in ViewBag.cheeses)
+        @foreach (var cheese in ViewBag.cheeses)
         {
-            <option value=" @cheese.Key" >@cheese.Key</option>
+            <option value=" @cheese.Name" >@cheese.Des</option>
         }
     </select>
     <input type="submit" value="Remove Cheese" />

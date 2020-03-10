@@ -13,11 +13,11 @@
     <p>No cheeses yet</p>
 }
 <ul>
-    @foreach(KeyValuePair<string,string> cheese in  ViewBag.cheeses)
+    @foreach(Cheese cheese in  ViewBag.cheeses)
     {
        <li>
-           <ol>Cheese: @cheese.Key</ol>
-           <ol>Description: @cheese.Value</ol>
+           <ol>Cheese: @cheese.Name</ol>
+           <ol>Description: @cheese.Description</ol>
        </li>
         
        
