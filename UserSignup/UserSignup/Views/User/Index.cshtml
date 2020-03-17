@@ -1,0 +1,23 @@
+﻿<link href="~/css/style.css" rel="stylesheet" type="text/css" />
+<h1>@ViewBag.Title</h1>
+@if (ViewBag.users.Count == 0)
+{
+    <p>There are no Users yet!</p>
+}
+<table class="job-listing">
+    <tr>
+        <th>UserName</th>
+        <th>Details</th>
+    </tr>
+    @foreach(var user in ViewBag.users)
+    {
+        <tr>
+            <td>@user.Username</td>
+            <td>
+                @Html.ActionLink("Details","Details",new { id = user.UserId })
+            </td>
+        </tr>
+        
+    }
+</table>
+

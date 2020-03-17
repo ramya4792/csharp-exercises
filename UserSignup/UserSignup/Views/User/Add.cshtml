@@ -1,0 +1,35 @@
+﻿@model UserSignup.Models.User
+<head>
+    <link rel="stylesheet" type=" text/css" href="~/css/style.css"/>
+</head>
+
+<body>
+    <h1>User SignUp Page</h1>
+    @using (Html.BeginForm())
+    {
+
+    <form method="post">
+        <div class="form-group">
+            <label for="Username">Username</label>
+            <input type="text" name="username" /><br />
+            @Html.ValidationMessageFor(e=>e.Username,"",new {@class = "text-danger"})
+
+        </div>
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="email" name="email" /><br />
+            @Html.ValidationMessageFor(e=>e.Email,"",new { @class = "text-danger"})
+        </div>
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password" name="password" /><br />
+
+        </div>
+        <div class="form-group">
+            <label for="verifyPassword">Verify Password</label>
+            <input type="password" name="verify" /><br />
+        </div>
+        <input type="submit" value="SignUp" />
+    </form>
+    }
+</body>

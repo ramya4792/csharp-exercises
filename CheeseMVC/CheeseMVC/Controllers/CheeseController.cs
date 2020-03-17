@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using CheeseMVC.Models;
+using CheeseMVC.Models; 
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CheeseMVC.Controllers
 {
     public class CheeseController : Controller
     {
+
         static private List<Cheese> Cheeses = new List<Cheese>();
 
         // GET: /<controller>/
@@ -20,26 +21,25 @@ namespace CheeseMVC.Controllers
 
             return View();
         }
+
         public IActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
-        [Route("/cheese/Add")]
-        public IActionResult NewCheese(string name, string description)
+        [Route("/Cheese/Add")]
+        public IActionResult NewCheese(string name, string description = "")
         {
-            //Add the new cheese to Existing cheeses
-            //Cheeses.Add( new Cheese(name,description));
             Cheese newCheese = new Cheese
             {
                 Description = description,
                 Name = name
             };
-        Cheeses.Add(newCheese);
-            return Redirect("/cheese");
+            // Add the new cheese to my existing cheeses
+            Cheeses.Add(newCheese);
+            return Redirect("/Cheese");
         }
-        
         public IActionResult Remove()
         {
             ViewBag.title = "Remove Cheeses";
@@ -47,18 +47,13 @@ namespace CheeseMVC.Controllers
             return View();
         }
         [HttpPost]
-        [Route("/cheese/Remove")]
-
-        
-        public IActionResult RemoveCheese(string dropdown1)
+        public IActionResult Remove(int[] cheeseIds)
         {
-            
-            //Removing the selected cheese
-            Cheeses.Remove(dropdown1.Trim());
-
-            return Redirect("/cheese");
+            foreach (int cheeseId in cheeseIds)
+            {
+                Cheeses.RemoveAll(x => x.CheeseId == cheeseId);
+            }
+            return Redirect("/Cheese");
         }
-
-        
     }
 }
