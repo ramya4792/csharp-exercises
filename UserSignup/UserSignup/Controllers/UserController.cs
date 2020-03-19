@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using UserSignup.Models;
+using UserSignup.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,26 +23,26 @@ namespace UserSignup.Controllers
         //Add action method
         public IActionResult Add()
         {
-            return View();
+            AddUserViewModel addUserViewModel = new AddUserViewModel();
+            return View(addUserViewModel);
         }
         [HttpPost]
-        public IActionResult Add(User user, string verify)
+        public IActionResult Add(AddUserViewModel addUserViewModel)
         {
-
-            //check password is not null
-            //password verify matches
-            if (user.Password != null && user.Password == verify)
+            //validate succeed add user to userData
+            if (ModelState.IsValid)
             {
-                    //add newuser to exsting users
-                    UserData.Add(user);
-                    //return to index page
-                    return Redirect("/User/Index");
+                User newUser = new User()
+                {
+                    Username = addUserViewModel.UserName,
+                    Email = addUserViewModel.Email,
+                    Password = addUserViewModel.Password
+                };
+                UserData.Add(newUser);
+                return Redirect("/User");
             }
-
-            else
-                    //otherwise return to same form
-                    return View(user);
-            
+            //otherwise render same form
+            return View(addUserViewModel);
         }
         
         //details action method to display the details of the selected user

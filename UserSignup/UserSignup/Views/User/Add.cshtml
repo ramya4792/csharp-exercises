@@ -1,35 +1,34 @@
-﻿@model UserSignup.Models.User
+﻿@model UserSignup.ViewModels.AddUserViewModel
 <head>
     <link rel="stylesheet" type=" text/css" href="~/css/style.css"/>
 </head>
 
 <body>
     <h1>User SignUp Page</h1>
-    @using (Html.BeginForm())
-    {
 
     <form method="post">
         <div class="form-group">
-            <label for="Username">Username</label>
-            <input type="text" name="username" /><br />
-            @Html.ValidationMessageFor(e=>e.Username,"",new {@class = "text-danger"})
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" /><br />
+            <span asp-validation-for="UserName" class="text-danger"></span>
 
         </div>
         <div class="form-group">
-            <label for="Email">Email</label>
-            <input type="email" name="email" /><br />
-            @Html.ValidationMessageFor(e=>e.Email,"",new { @class = "text-danger"})
+            <label asp-for="Email"></label>
+            <input asp-for="Email" /><br />
+            <span asp-validation-for="Email" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label for="Password">Password</label>
-            <input type="password" name="password" /><br />
+            <label asp-for="Password"></label>
+            <input asp-for="Password" /><br />
+            <span asp-validation-for="Password" class="text-danger"></span>
 
         </div>
         <div class="form-group">
-            <label for="verifyPassword">Verify Password</label>
-            <input type="password" name="verify" /><br />
+            <label asp-for="VerifyPassword" ></label>
+            <input asp-for="VerifyPassword" /><br />
+            <span asp-validation-for="VerifyPassword" class="text-danger"></span>
         </div>
         <input type="submit" value="SignUp" />
     </form>
-    }
 </body>
